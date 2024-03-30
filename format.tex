@@ -1,0 +1,52 @@
+\documentclass[11pt, a4paper]{report}
+
+\usepackage[a4paper, left=25mm, top=30mm, right=25mm, bottom=30mm]{geometry}
+
+\usepackage{times} % set font typeface to Times New Roman
+
+\usepackage[ngerman]{babel} % make it german
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{blindtext} % for lorem impsum
+\usepackage{multicol} % allow arbitrary number of columns
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{eso-pic,graphicx}
+\usepackage{float} % for H setting to include float in multicol
+\usepackage{paralist} % compact list
+\usepackage{framed}
+\usepackage{csvsimple}
+\usepackage{listofitems}
+\usepackage{etoolbox}
+\usepackage{microtype} % helps with justification
+\usepackage{hyperref}
+\usepackage{vhistory} % version history
+\usepackage{enumitem} % allows nolistsep, noitemsep to reduce spacing in listings
+\usepackage{listings} % used to hightlight code examples
+\usepackage{tabularx}
+\usepackage{enumitem}  % for enumerate environmet which can define start and label
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage[backend=bibtex,style=alphabetic]{biblatex} % verbose-trad2 alphabetic verbose
+
+\hypersetup{
+	hidelinks=true,
+	colorlinks,
+	allcolors=Blue
+}
+
+% command to define the pdf name to reference in the document
+\newcommand{\docname}[1]{\renewcommand{\gdocname}{#1}}
+\newcommand{\gdocname}{DOCNAME REQUIRED!}
+
+% Set the page style to "fancy"...
+\pagestyle{fancy}
+
+%... then configure it.
+\fancyhead{} % clear all header fields
+\lhead{\includegraphics[width=.3\linewidth]{res/headerlogo}}
+
+\fancyfoot{} % clear all footer fields
+\fancyfoot[OFR]{Seite \thepage \xspace von \pageref*{LastPage}}
+\fancyfoot[OFL]{\gdocname}

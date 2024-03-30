@@ -1,0 +1,29 @@
+
+
+
+\input{format}
+
+% set name to show in footer
+\docname{Pflichtenheft.pdf}
+
+% this is the bibligoraphy 
+\bibliography{literatur}
+
+% this is the title side definition
+\title{\includegraphics[width=\textwidth]{res/logo.png}\\
+	Pflichtenheft\\
+	\small{Version \vhCurrentVersion}}
+\author{SET AUTHOR!}
+\date{\vhCurrentDate}
+
+\begin{document}
+	\maketitle
+	\include{version_history}
+	\tableofcontents
+	
+	The quick brown fox jumps over the lazy dog \newpage
+	Die von Maas vorgeschlagene Standartisierungsmodell \autocite[12]{ARTICLE:1}  wurde in die Managementbereiche nach dem Funktionsmodell \autocite[35-60]{BOOK:1} unterteilt.  Dabei wurde die Funktionskopfzuteilung beachtet \footcite{WEBSITE:1}.\newpage
+	p3 \newpage
+
+	\printbibliography
+\end{document}
