@@ -1,4 +1,4 @@
-\documentclass[11pt, a4paper]{report}
+\documentclass[11pt, a4paper]{article}
 
 \usepackage[a4paper, left=25mm, top=30mm, right=25mm, bottom=30mm]{geometry}
 
@@ -10,8 +10,8 @@
 \usepackage{blindtext} % for lorem impsum
 \usepackage{multicol} % allow arbitrary number of columns
 \usepackage[dvipsnames, table]{xcolor}
-\usepackage{lastpage}
 \usepackage{fancyhdr}
+\usepackage{lastpage}
 \usepackage{eso-pic,graphicx}
 \usepackage{float} % for H setting to include float in multicol
 \usepackage{paralist} % compact list
@@ -29,6 +29,7 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 \usepackage[backend=bibtex,style=alphabetic]{biblatex} % verbose-trad2 alphabetic verbose
+\usepackage[toc]{glossaries}
 
 \hypersetup{
 	hidelinks=true,
@@ -42,11 +43,18 @@
 
 % Set the page style to "fancy"...
 \pagestyle{fancy}
-
-%... then configure it.
-\fancyhead{} % clear all header fields
+\fancyhf{}
 \lhead{\includegraphics[width=.3\linewidth]{res/headerlogo}}
+\rhead{\nouppercase{\leftmark}} % use \nouppercase{\rightmark} for subsection
+%\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+\rfoot{Seite \thepage \xspace von \pageref{LastPage}}
+\lfoot{\gdocname}
 
-\fancyfoot{} % clear all footer fields
-\fancyfoot[OFR]{Seite \thepage \xspace von \pageref*{LastPage}}
-\fancyfoot[OFL]{\gdocname}
+\fancypagestyle{plain}{ % this is used to redefine 'plain' pages like table of contents
+	\fancyhf{}
+	\lhead{\includegraphics[width=.3\linewidth]{res/headerlogo}}
+	\rhead{\nouppercase{\leftmark}} % use \nouppercase{\rightmark} for subsection
+	%\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+	\rfoot{Seite \thepage \xspace von \pageref{LastPage}}
+	\lfoot{\gdocname}
+}

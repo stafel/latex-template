@@ -3,6 +3,9 @@
 
 \input{format}
 
+\input{glossary}
+\makeglossaries
+
 % set name to show in footer
 \docname{documentation.pdf}
 
@@ -20,10 +23,20 @@
 	\maketitle
 	\include{version_history}
 	\tableofcontents
+	\newpage
 	
+	\section{test}
 	The quick brown fox jumps over the lazy dog \newpage
 	Die von Maas vorgeschlagene Standartisierungsmodell \autocite[12]{ARTICLE:1}  wurde in die Managementbereiche nach dem Funktionsmodell \autocite[35-60]{BOOK:1} unterteilt.  Dabei wurde die Funktionskopfzuteilung beachtet \footcite{WEBSITE:1}.\newpage
-	p3 \newpage
+	p3 \gls{test} \newpage
+	
+	\include{parts/example}
 
 	\printbibliography
+	\addcontentsline{toc}{section}{Bibliography} % Literatur add Bibliography as section/chapter(if document class report) in table of contents
+	\listoffigures
+	\addcontentsline{toc}{section}{Abbildungsverzeichnis} % fix toc entry Abbildungsverzeichnis
+	\listoftables
+	\addcontentsline{toc}{section}{Tabellenverzeichnis} % fix toc entry Tabellenverzeichnis
+	\printglossaries % Glossar, remember to regenerate with F9 in TeXstudio
 \end{document}
