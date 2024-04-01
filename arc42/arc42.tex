@@ -1,0 +1,44 @@
+\input{../format}
+
+\input{../glossary}
+\makeglossaries
+
+% set name to show in footer
+\docname{arc42.pdf}
+
+% this is the bibligoraphy 
+\bibliography{../literatur}
+
+% this is the title side definition
+\title{\includegraphics[width=\textwidth]{../res/logo.png}\\
+	Arc42 Architektur\\
+	\small{Version \vhCurrentVersion}}
+\author{SET AUTHOR!}
+\date{\vhCurrentDate}
+
+\begin{document}
+	\maketitle
+	\include{version_history}
+	\tableofcontents
+	\newpage
+	
+	\include{parts/introgoals}
+	\include{parts/boundaryconditions}
+	\include{parts/contextboundary}
+	\include{parts/solutionstrategy}
+	\include{parts/buildingblockview}
+	\include{parts/runtimeview}
+	\include{parts/distributionview}
+	\include{parts/crosscuttingconcepts}
+	\include{parts/architecturedecisions}
+	\include{parts/qualityrequirements}
+	\include{parts/riskanddebt}
+	
+	\printbibliography
+	\addcontentsline{toc}{section}{Bibliography} % Literatur add Bibliography as section/chapter(if document class report) in table of contents
+	\listoffigures
+	\addcontentsline{toc}{section}{Abbildungsverzeichnis} % fix toc entry Abbildungsverzeichnis
+	\listoftables
+	\addcontentsline{toc}{section}{Tabellenverzeichnis} % fix toc entry Tabellenverzeichnis
+	\printglossaries % Glossar, remember to regenerate with F9 in TeXstudio
+\end{document}
