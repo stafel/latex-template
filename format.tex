@@ -41,10 +41,14 @@
 \newcommand{\docname}[1]{\renewcommand{\gdocname}{#1}}
 \newcommand{\gdocname}{DOCNAME REQUIRED!}
 
+% command to define the logo in the header
+\newcommand{\headerlogo}[1]{\renewcommand{\gheaderlogo}{#1}}
+\newcommand{\gheaderlogo}{res/headerlogo}
+
 % Set the page style to "fancy"...
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\includegraphics[width=.3\linewidth]{res/headerlogo}}
+\lhead{\includegraphics[width=.3\linewidth]{\gheaderlogo}}
 \rhead{\nouppercase{\leftmark}} % use \nouppercase{\rightmark} for subsection
 %\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
 \rfoot{Seite \thepage \xspace von \pageref{LastPage}}
@@ -52,7 +56,7 @@
 
 \fancypagestyle{plain}{ % this is used to redefine 'plain' pages like table of contents
 	\fancyhf{}
-	\lhead{\includegraphics[width=.3\linewidth]{res/headerlogo}}
+	\lhead{\includegraphics[width=.3\linewidth]{\gheaderlogo}}
 	\rhead{\nouppercase{\leftmark}} % use \nouppercase{\rightmark} for subsection
 	%\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
 	\rfoot{Seite \thepage \xspace von \pageref{LastPage}}
