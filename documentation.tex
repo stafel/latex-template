@@ -32,11 +32,6 @@
 	
 	\include{parts/example}
 
-	\printbibliography
-	\addcontentsline{toc}{section}{Bibliography} % Literatur add Bibliography as section/chapter(if document class report) in table of contents
-	\listoffigures
-	\addcontentsline{toc}{section}{Abbildungsverzeichnis} % fix toc entry Abbildungsverzeichnis
-	\listoftables
-	\addcontentsline{toc}{section}{Tabellenverzeichnis} % fix toc entry Tabellenverzeichnis
-	\printglossaries % Glossar, remember to regenerate with F9 in TeXstudio
+	% must be input instead of include else rewriting of aux files is prevented by security settings
+	\input{glossaryandreferences} % remember to regenerate glossary with F9 in TeXstudio
 \end{document}
