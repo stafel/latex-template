@@ -1,0 +1,74 @@
+\input{../format}
+
+% set name to show in footer
+\docname{protocol.pdf}
+
+% define the image file to show top left in the header
+\headerlogo{../res/headerlogo}
+
+\authornames{SET AUTHOR!}
+\eventdate{\today}
+\eventtime{SET EVENT TIME!}
+\eventleader{SET EVENT LEADER!}
+\eventplace{SET EVENT PLACE!}
+
+% add participants and absentees
+% note that they are automaticaly added to the distributions list
+\eventparticipant{a}
+\eventparticipant{b}
+\eventparticipant{cc}
+
+\eventabsentee{rg}
+
+% add aditional people to the distribution list
+\eventdistribution{xy}
+
+% define our agenda items
+\eventagenda{talk}
+\eventagenda{decide}
+\eventagenda{coffee}
+
+% to have a general separation size define it here
+\newcommand{\lsep}{0.2}
+\newcommand{\rsep}{0.45}
+
+% disable paragraph indentation
+% see: https://tex.stackexchange.com/questions/14375/how-to-disable-automatic-indentation-on-new-paragraphs
+\setlength{\parindent}{0pt}
+
+% customize section prefix
+% see: https://tex.stackexchange.com/questions/136527/section-numbering-without-numbers
+\makeatletter
+% we use \prefix@<level> only if it is defined
+\renewcommand{\@seccntformat}[1]{%
+	\ifcsname prefix@#1\endcsname
+	\csname prefix@#1\endcsname
+	\else
+	\csname the#1\endcsname\quad
+	\fi}
+% define \prefix@section
+\newcommand\prefix@section{}
+\makeatother
+
+\begin{document}
+	\section{Sitzungsprotokol vom \geventdate}
+	
+	\duoalign{\lsep}{Anwesend:}{\rsep}{\geventparticipants}
+	
+	\duoalign{\lsep}{Entschuldigt:}{\rsep}{\geventabsentees}
+	
+	\duoalign{\lsep}{Sitzungsleitung:}{\rsep}{\geventleader}
+	
+	\duoalign{\lsep}{Verfasser Protokol:}{\rsep}{\gauthornames}
+	
+	\duoalign{\lsep}{Datum:}{\rsep}{\geventdate}
+	
+	\duoalign{\lsep}{Zeit:}{\rsep}{\geventtime}
+	
+	\duoalign{\lsep}{Ort:}{\rsep}{\geventplace}
+	
+	\duoalign{\lsep}{Geht an:}{\rsep}{\geventdistributions}
+	
+	\duoalign{\lsep}{Traktanden:}{\rsep}{\geventagenda}
+	
+\end{document}

@@ -4,6 +4,7 @@
 
 \usepackage{times} % set font typeface to Times New Roman
 
+\usepackage{etoolbox}
 \usepackage[ngerman]{babel} % make it german
 \usepackage{xspace}
 \usepackage{graphicx}
@@ -37,6 +38,20 @@
 	allcolors=Blue
 }
 
+% define duo minipage for allignment
+\newcommand{\duoalign}[4]{
+	\begin{minipage}[t]{#1\textwidth}
+		\textbf{#2}
+	\end{minipage}
+	\begin{minipage}[t]{#3\textwidth}
+		#4\\
+	\end{minipage}
+}
+
+% command to define the author names to reference in the document
+\newcommand{\authornames}[1]{\author{#1} \renewcommand{\gauthornames}{#1}}
+\newcommand{\gauthornames}{SET AUTHOR!}
+
 % command to define the pdf name to reference in the document
 \newcommand{\docname}[1]{\renewcommand{\gdocname}{#1}}
 \newcommand{\gdocname}{DOCNAME REQUIRED!}
@@ -61,4 +76,54 @@
 	%\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
 	\rfoot{Seite \thepage \xspace von \pageref{LastPage}}
 	\lfoot{\gdocname}
+}
+
+% command to define event date used in the protocol
+\newcommand{\eventdate}[1]{\renewcommand{\geventdate}{#1}}
+\newcommand{\geventdate}{\today}
+
+% command to define event timeframe used in the protocol
+\newcommand{\eventtime}[1]{\renewcommand{\geventtime}{#1}}
+\newcommand{\geventtime}{SET EVENT TIME!}
+
+% command to define event leader used in the protocol
+\newcommand{\eventleader}[1]{\renewcommand{\geventleader}{#1}}
+\newcommand{\geventleader}{SET EVENT LEADER!}
+
+% command to define event place used in the protocol
+\newcommand{\eventplace}[1]{\renewcommand{\geventplace}{#1}}
+\newcommand{\geventplace}{SET EVENT PLACE!}
+
+% command to define event distribution list used in the protocol, all participants and absentees are added automaticaly
+\newcommand{\geventdistributions}{}
+\newcommand{\eventdistribution}[1]{%
+	\ifdefempty{\geventdistributions}
+	{\appto\geventdistributions{#1}}
+	{\appto\geventdistributions{\\#1}}%
+}
+
+% command to define event participants list used in the protocol
+\newcommand{\geventparticipants}{}
+\newcommand{\eventparticipant}[1]{%
+	\eventdistribution{#1} % add to distribution list
+	\ifdefempty{\geventparticipants}
+	{\appto\geventparticipants{#1}}
+	{\appto\geventparticipants{\\#1}}%
+}
+
+% command to define event absentees list used in the protocol
+\newcommand{\geventabsentees}{}
+\newcommand{\eventabsentee}[1]{%
+	\eventdistribution{#1} % add to distribution list
+	\ifdefempty{\geventabsentees}
+	{\appto\geventabsentees{#1}}
+	{\appto\geventabsentees{\\#1}}%
+}
+
+% command to define event agenda items used in the protocol
+\newcommand{\geventagenda}{}
+\newcommand{\eventagenda}[1]{%
+	\ifdefempty{\geventagenda}
+	{\appto\geventagenda{#1}}
+	{\appto\geventagenda{\\#1}}%
 }
