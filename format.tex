@@ -44,7 +44,7 @@
 		\textbf{#2}
 	\end{minipage}
 	\begin{minipage}[t]{#3\textwidth}
-		#4\\
+		\ifdefempty{#4}{}{#4\\}
 	\end{minipage}
 }
 
