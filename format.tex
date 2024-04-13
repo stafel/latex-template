@@ -139,7 +139,7 @@
 \newcounter{timetablesolltotal}
 
 % environment for time table, has one parameter for the date of the time table
-\newenvironment{timetable}[1]{\setcounter{timetableisttotal}{0} \setcounter{timetablesolltotal}{0} \begin{table}[H] \centering \caption{Tätigkeiten am #1} \begin{tabular}{ c c c c } \textbf{Tätigkeit} & \textbf{Sollzeit} & \textbf{Istzeit} & \textbf{Notiz} \\ \hline}{ \textbf{Total} & \textbf{\the\value{timetablesolltotal}} & \textbf{\the\value{timetableisttotal}} \end{tabular} \end{table} \addtocounter{timetableoverallisttotal}{\value{timetableisttotal}} \addtocounter{timetableoverallsolltotal}{\value{timetablesolltotal}}}
+\newenvironment{timetable}[1]{\setcounter{timetableisttotal}{0} \setcounter{timetablesolltotal}{0} \begin{table}[H] \centering \caption{Tätigkeiten am #1} \begin{tabular}{ l c c c } \textbf{Tätigkeit} & \textbf{Sollzeit} & \textbf{Istzeit} & \textbf{Notiz} \\ \hline}{ \textbf{Total} & \textbf{\the\value{timetablesolltotal}} & \textbf{\the\value{timetableisttotal}} \end{tabular} \end{table} \addtocounter{timetableoverallisttotal}{\value{timetableisttotal}} \addtocounter{timetableoverallsolltotal}{\value{timetablesolltotal}}}
 
 % single entry in the time table environment, has four params job description, planned time, used time, notes; use only numbers in the time fields to allow summation
-\newcommand{\timeentry}[4]{ #1 & #2 & #3 & #4 \\ \hline \addtocounter{timetablesolltotal}{#2} \addtocounter{timetableisttotal}{#3} }
+\newcommand{\timeentry}[4]{ #1 & #2 & #3 & #4 \addtocounter{timetablesolltotal}{#2} \addtocounter{timetableisttotal}{#3} \\ \hline }
