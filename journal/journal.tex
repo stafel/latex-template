@@ -1,0 +1,74 @@
+\input{../format}
+
+\input{../glossary}
+\makeglossaries
+
+% set name to show in footer
+\docname{journal.pdf}
+
+% define the image file to show top left in the header
+\headerlogo{../res/headerlogo}
+
+% this is the bibligoraphy 
+\bibliography{../literatur}
+
+% this is the title side definition
+\title{Arbeitsjournal\\
+	\small{Version \vhCurrentVersion}}
+\author{SET AUTHOR!}
+\date{\vhCurrentDate}
+
+% autosummation works over the 4 counters
+% timetableoverallisttotal - sum of all used time up to this point in the document for extternal usage via \the\value{timetableoverallisttotal}
+% timetableoverallsolltotal - sum of all planned time up to this point in the document for extternal usage via \the\value{timetableoverallsolltotal}
+% timetableisttotal - internal used time counter for a single time table
+% timetablesolltotal - internal planned time counter for a single time table
+
+\begin{document}
+	\maketitle
+	\input{version_history}
+	\tableofcontents
+	\newpage
+	
+	\section{Einleitung}
+	Das Arbeitsjournal dokumentiert alle Aktivitäten chronologisch für jeden Arbeitstag ein Kapitel. Geplante und effektiv gebrauchte Zeit pro Arbeitsschritt werden in Minuten geführt. Das Unterkapitel Tagesablauf informiert dabei über Details wie Vorgehensweise, Schwierigkeiten und Hilfestellungen. Die Unterkapitel Reflexion und Massnahmen beschreiben das Fazit und mögliche Anpassungen an der Vorgehensweise.
+	
+	\section{Arbeitsjournal 01. April 2024}
+	
+	\subsection{Tätigkeiten}
+	
+	\begin{timetable}{01. April 2024}
+		\timeentry{Drink coffee}{30}{45}{talked too much}
+		\timeentry{Talk}{20}{15}{talked too little}
+	\end{timetable}
+
+	\subsection{Tagesablauf}
+	Got coffee and talked so much with Max Mustermann.
+	
+	\subsection{Reflexion}
+	Should have prepared the talk I had in the afternoon.
+	
+	\subsection{Massnahmen}
+	Plan every talk preparation.
+
+	\section{Arbeitsjournal 02. April 2024}
+	
+	\subsection{Tätigkeiten}
+
+	\begin{timetable}{02. April 2024}
+		\timeentry{Drink coffee}{45}{40}{Not much to talk about}
+	\end{timetable}
+
+	\subsection{Tagesablauf}
+	All fine.
+	
+	\subsection{Reflexion}
+
+	We planned \the\value{timetableoverallsolltotal} and used \the\value{timetableoverallisttotal} up to this point.
+	
+	\subsection{Massnahmen}
+	None
+	
+	% must be input instead of include else rewriting of aux files is prevented by security settings
+	\input{../glossaryandreferences} % remember to regenerate glossary with F9 in TeXstudio
+\end{document}
